@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Bold First Half of Words",
+  "version": "1.0",
+  "description": "A Chrome extension that bolds the first half of every word in a webpage.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "permissions": ["activeTab", "scripting"],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches":[
+        "https://calendar.google.com/*",
+        "https://www.google.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
